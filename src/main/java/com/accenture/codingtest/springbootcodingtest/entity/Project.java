@@ -8,7 +8,7 @@ import java.util.UUID;
 public class Project {
     @Id
     @GeneratedValue
-    @Column(columnDefinition = "id", updatable = false, nullable = false)
+    @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
     @Column(unique = true, nullable = false)

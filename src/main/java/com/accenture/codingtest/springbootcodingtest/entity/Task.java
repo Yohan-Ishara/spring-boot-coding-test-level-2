@@ -8,7 +8,7 @@ import java.util.UUID;
 public class Task {
     @Id
     @GeneratedValue
-    @Column(columnDefinition = "uuid", updatable = false, nullable = false)
+    @Column( name="id", updatable = false, nullable = false)
     private UUID id;
 
     @Column(nullable = false)
@@ -20,21 +20,12 @@ public class Task {
     private String status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "project_id", nullable = false)
     private Project project;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
